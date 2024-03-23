@@ -1,10 +1,10 @@
-from django.shortcuts import render
+from django.views.generic import ListView
+from .models import Recipe
 
-def recipe_list(request):
-    return render(request, 'ledger/recipe_list.html')
+class RecipeListView(ListView):
+    model = Recipe
+    template_name = "recipe_list.html"
 
-def recipe_1(request):
-    return render(request, 'ledger/recipe_1.html')
-
-def recipe_2(request):
-    return render(request, 'ledger/recipe_2.html')
+class RecipeDetailView(DetailView):
+    model = Recipe
+    template_name = "recipe_detail.html"
