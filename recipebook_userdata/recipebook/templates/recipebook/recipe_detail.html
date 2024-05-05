@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ recipe.title }}</h1>
+    <p>{{ recipe.description }}</p>
+    <ul>
+        {% for image in recipe.images.all %}
+            <li><img src="{{ image.image.url }}" alt="{{ image.description }}"></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'recipebook:recipe_add_image' recipe.pk %}">Add Image</a>
+{% endblock %}
